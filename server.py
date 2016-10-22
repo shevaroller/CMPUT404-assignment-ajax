@@ -102,7 +102,9 @@ def get_entity(entity):
 @app.route("/clear", methods=['POST','GET'])
 def clear():
     '''Clear the world out!'''
-    return flask.jsonify(myWorld.world())
+    currentWorld = myWorld.world()
+    myWorld.clear()
+    return flask.jsonify(currentWorld)
 
 if __name__ == "__main__":
     app.run()
